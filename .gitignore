@@ -1,5 +1,7 @@
 target
 project
+src/main/resources
+
 
 # Compiled class file
 *.class
