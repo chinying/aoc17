@@ -104,7 +104,39 @@ object Day4 {
     b.foreach(c => freq(c) -= 1)
     freq.forall(n => n == 0)
   }
+}
 
+object Day5 {
+  def main(args: Array[String]) {
+    val input = Source.fromURL(getClass.getResource("5.txt")).mkString.split("\n").map(_.toInt)
+    part1(input)
+    part2(input)
+  }
 
+  def part1(registers : Array[Int]) {
+    var i = 0
+    var count = 0
+    while (i < registers.length) {
+      val temp = i
+      i += registers(i)
+      registers(temp) += 1
+      count += 1
+    }
+    println(count)
+  }
+
+  def part2(registers : Array[Int]) {
+    var i = 0
+    var count = 0
+    while (i < registers.length) {
+      val temp = i
+      i += registers(i)
+      if (registers(temp) > 2) {
+        registers(temp) -= 1
+      } else registers(temp) += 1
+      count += 1
+    }
+    println(count)
+  }
 }
 
