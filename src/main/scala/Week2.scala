@@ -27,15 +27,15 @@ object Day12 {
       var p = find(x)
       var q = find(y)
       if (p == q) return
-      
-		 // make root of smaller rank point to root of larger rank
-			if (rank(p) < rank(q)) parent(p) = q
-			else if (rank(p) > rank(q)) parent(q) = p
-			else {
+
+      // make root of smaller rank point to root of larger rank
+      if (rank(p) < rank(q)) parent(p) = q
+      else if (rank(p) > rank(q)) parent(q) = p
+      else {
         parent(q) = p
         rank(p) += 1
-			}
-			count -= 1	
+      }
+      count -= 1
     }
 
     def groupSize(x: Int) : Int = {
@@ -55,7 +55,6 @@ object Day12 {
       val tokens = line.split("<->").map(_.trim)
       val root = tokens.head.toInt
       val neighbours = tokens.last.split(",").map(_.trim).map(_.toInt)
-      // println(neighbours.mkString)
       neighbours.foreach(neighbour => {
         uf.union(root, neighbour)
       })
