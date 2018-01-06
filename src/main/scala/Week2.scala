@@ -38,6 +38,9 @@ object Day12 {
       count -= 1
     }
 
+    /* returns size of subgraph of connected components at x, 
+     * very naive solution, maybe there's a better one?
+    */
     def groupSize(x: Int) : Int = {
       if (x > initSize) -1
       (0 until initSize).filter(connected(_, x) == true).length
